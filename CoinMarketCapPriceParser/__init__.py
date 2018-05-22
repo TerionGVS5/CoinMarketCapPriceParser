@@ -4,6 +4,7 @@ import datetime
 from time import sleep
 
 
+
 def fromUnixTimeToHumanString(seconds):
     return datetime.datetime.fromtimestamp(
         int(seconds)
@@ -51,6 +52,3 @@ def make_db():
         data, count_coins, count_in_db = makeRequestGetData(count_in_db+1, count_in_db)
         cursor.executemany("INSERT INTO coins VALUES (?,?,?)", data)
         conn.commit()
-
-if __name__ == '__main__':
-    make_db()
